@@ -34,7 +34,9 @@ namespace OdeToFood
                 app.UseExceptionHandler();
             }
 
-            app.UseDeveloperExceptionPage();
+        
+            app.UseFileServer();
+
             app.Run(async (context) =>
             {
                 
