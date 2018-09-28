@@ -1,10 +1,11 @@
-﻿@model IEnumerable<OdeToFood.Model.Restaurant>
+﻿@model OdeToFood.ViewModels.HomeIndexViewModels
 
 <html>
 <head>
     <title></title>
 </head>
 <body>
+    <h1>@Model.CurrentMessage</h1>
     <table border="1">
         <thead>
             <tr>
@@ -13,11 +14,14 @@
 
             </tr>
         </thead>
-        @foreach (var restaurant in Model)
+        @foreach (var restaurant in Model.Restaurants)
         {
             <tr>
                 <td>@restaurant.Id</td>
                 <td>@restaurant.Name</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
+                </td>
             </tr>
         }
 
