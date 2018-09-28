@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OdeToFood
+namespace OdeToFood.Services
 {
-    public class Greeter : IGreeting
+    public class Greeter : IGreeter
     {
         private IConfiguration _config;
         public Greeter(IConfiguration config)
