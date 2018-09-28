@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace OdeToFood.Services
 {
-    public class inMemoryRestaurantData: IRestaurantData
+    public class InMemoryRestaurantData: IRestaurantData
     {
         private List<Restaurant> _restaurants;
-        public inMemoryRestaurantData()
+        public InMemoryRestaurantData()
         {
             _restaurants = new List<Restaurant>
             {
@@ -18,6 +18,13 @@ namespace OdeToFood.Services
                 new Restaurant{Id=3, Name="Kings Contrivance"},
                 new Restaurant{Id=4, Name="La Boca"}
             };
+        }
+
+        public Restaurant Add(Restaurant newRestaurante)
+        {
+            newRestaurante.Id = _restaurants.Max(r => r.Id) + 1;
+            _restaurants.Add(newRestaurante);
+            return newRestaurante;
         }
 
         public Restaurant Get(int id)

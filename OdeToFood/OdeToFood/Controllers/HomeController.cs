@@ -37,5 +37,33 @@ namespace OdeToFood.wwwroot.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(RestaurantEditModel model )
+        {
+            if(ModelState.IsValid)
+            {
+                var newRestaurante = new Restaurant();
+                newRestaurante.Name = model.Name;
+                newRestaurante.Cusine = model.Cusine;
+
+                newRestaurante = _restaurantData.Add(newRestaurante);
+
+
+                return RedirectToAction(nameof(Details), new { id = newRestaurante.Id });
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
     }
 }
