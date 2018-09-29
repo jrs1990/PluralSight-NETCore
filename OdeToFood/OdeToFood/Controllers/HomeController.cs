@@ -58,6 +58,7 @@ namespace OdeToFood.wwwroot.Controllers
 
 
                 return RedirectToAction(nameof(Details), new { id = newRestaurante.Id });
+                
             }
             else
             {
