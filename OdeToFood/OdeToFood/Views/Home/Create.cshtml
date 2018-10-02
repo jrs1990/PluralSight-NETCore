@@ -1,9 +1,14 @@
 ﻿@using OdeToFood.Model
 @model OdeToFood.Model.Restaurant
 
+@{
+    ViewBag.Title = "Create";
+
+}
+
 <h1>Create</h1>
 
-<form  method="post">
+<form method="post">
     <div>
         <label asp-for="Name"></label>
         <input asp-for="Name" />
@@ -15,5 +20,5 @@
                 asp-items="@Html.GetEnumSelectList<CusineType>()"></select>
         <span asp-validation-for="Cusine"></span>
     </div>
-    <input type="submit" name="save" value="Save"/>
+    <input type="submit" name="save" value="Save" />
 </form>

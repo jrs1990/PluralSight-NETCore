@@ -1,33 +1,33 @@
 ﻿@model OdeToFood.ViewModels.HomeIndexViewModels
+ 
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>@Model.CurrentMessage</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td colspan="2">Name</td>
+<h1>All Restaurants</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td colspan="2">Name</td>
 
-            </tr>
-        </thead>
-        @foreach (var restaurant in Model.Restaurants)
-        {
-            <tr>
-                <td>@restaurant.Id</td>
-                <td>@restaurant.Name</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
-                </td>
-            </tr>
-        }
+        </tr>
+    </thead>
+    @foreach (var restaurant in Model.Restaurants)
+    {
+        <tr>
+            <td>@restaurant.Id</td>
+            <td>@restaurant.Name</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
+            </td>
+            <td>
+                <a asp-page="/Restaurants/Edit" asp-route-id="@restaurant.Id">Edit</a>
+            </td>
+        </tr>
+    }
 
-    </table>
+</table>
 
-    <a asp-action="Create">Add Restaurant</a>
+<a asp-action="Create">Add Restaurant</a>
 
-</body>
-</html>
+@section footer {
+    @Model.CurrentMessage   
+}
