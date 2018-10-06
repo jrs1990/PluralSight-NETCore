@@ -63,6 +63,7 @@ namespace OdeToFood
 
         
             app.UseStaticFiles();
+            app.UseNodeModules(env.ContentRootPath);
             app.UseAuthentication();
             app.UseMvc(ConfigureRoute);
 
